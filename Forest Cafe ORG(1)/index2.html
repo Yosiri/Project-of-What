@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Forest's Cafe Menu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=EB+Garamond:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1><a href="index.html">Forest's Cafe</a></h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index3.html">About</a></li>
+                <li><a href="index2.html">Menu</a></li>
+                <li><a href="index4.html">Contact</a></li>
+                <li><a href="">Coming soon</a></li>
+                <li><a href="">Coming soon</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="menu-hero">
+        <div class="menu-hero-content">
+            <h2>Our Menu</h2>
+            <p>Discover the natural flavors inspired by the heart of the forest.</p>
+        </div>
+    </section>
+
+    <section class="menu-section">
+        <div class="menu-category">
+            <h3>Milk Tea</h3>
+            <div class="menu-item" data-title="Forest Brew" data-image="images.jpg" data-description="A rich and earthy coffee blend, inspired by the heart of the forest." data-price="₱69.99">
+                <h4>Forest Brew</h4>
+                <p>A rich and earthy coffee blend, inspired by the heart of the forest. - ₱69.99</p>
+            </div>
+            <div class="menu-item" data-title="Mossy Matcha" data-image="Mossy.jpg" data-description="A creamy matcha latte with a hint of natural sweetness." data-price="₱99.50">
+                <h4>Mossy Matcha</h4>
+                <p>A creamy matcha latte with a hint of natural sweetness. - ₱99.50</p>
+            </div>
+        </div>
+
+        <div class="menu-category">
+            <h3>Cold Beverages</h3>
+            <div class="menu-item" data-title="Berry Breeze" data-image="Berry.jpg" data-description="A refreshing iced tea infused with mixed berries." data-price="₱99.50">
+                <h4>Berry Breeze</h4>
+                <p>A refreshing iced tea infused with mixed berries. - ₱99.50</p>
+            </div>
+            <div class="menu-item" data-title="Pine Cooler" data-image="pine.webp" data-description="A zesty citrus and mint cooler for a forest-like freshness." data-price="₱99.50">
+                <h4>Pine Cooler</h4>
+                <p>A zesty citrus and mint cooler for a forest-like freshness. - ₱99.50</p>
+            </div>
+        </div>
+
+        <div class="menu-category">
+            <h3>Snacks & Treats</h3>
+            <div class="menu-item" data-title="Woodland Waffles" data-image="waffles.jpg" data-description="Warm waffles topped with fresh berries and maple syrup." data-price="₱135">
+                <h4>Woodland Waffles</h4>
+                <p>Warm waffles topped with fresh berries and maple syrup. - ₱135</p>
+            </div>
+            <div class="menu-item" data-title="Stardust Cookies" data-image="cookies.jpg" data-description="Buttery cookies sprinkled with edible 'stardust.'" data-price="₱150">
+                <h4>Stardust Cookies</h4>
+                <p>Buttery cookies sprinkled with edible 'stardust.' - ₱150</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <button class="close-btn" id="close-btn">&times;</button>
+            <img src="" alt="" id="modal-image" class="popup-image" />
+            <h4 id="modal-title"></h4>
+            <p id="modal-description"></p>
+            <p id="modal-price"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+    <footer>
+        <p>&copy; 2024 Forest's Cafe | All Rights Reserved</p>
+    </footer>
+</body>
+</html>

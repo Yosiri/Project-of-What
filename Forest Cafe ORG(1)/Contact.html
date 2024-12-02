@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EmailJS Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: rgba(255, 239, 239, 0.438);
+      backdrop-filter: blur(5px);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+
+    h2 {
+      color: #333;
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: #555;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 16px;
+      box-sizing: border-box;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+
+    button {
+      background-color: #2ecc71;
+      color: #fff;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #27ae60;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Contact Us</h2>
+    <form id="contactForm">
+      <label for="Admin">Admin</label>
+      <input type="text" id="Admin" name="Admin" required>
+
+      <label for="to_name">To Name</label>
+      <input type="text" id="to_name" name="to_name" required>
+
+      <label for="from_name">From Name</label>
+      <input type="text" id="from_name" name="from_name" required>
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="4" required></textarea>
+
+      <label for="reply_to">Reply To</label>
+      <input type="email" id="reply_to" name="reply_to" required>
+
+      <button type="button" onclick="submitForm()">Submit</button>
+    </form>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>
+    // Initialize EmailJS with your Public Key
+    emailjs.init('P5hBlDZOWjJUAZlp_');
+
+    function submitForm() {
+      const form = document.getElementById('contactForm');
+      const formData = new FormData(form);
+
+      // Check if all required fields are filled
+      if (!formData.get('Admin') || !formData.get('to_name') || !formData.get('from_name') || !formData.get('message') || !formData.get('reply_to')) {
+        alert('Please fill in all fields.');
+        return;
+      }
+
+      // Validate email
+      const email = formData.get('reply_to');
+      if (!email.match(/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)) {
+        alert('Please enter a valid email address.');
+        return;
+      }
+
+      const serviceID = 'service_l79c1qe';
+      const templateID = 'template_39z0xeb';
+
+      // Sending email using EmailJS
+      emailjs.send(serviceID, templateID, {
+        Admin: formData.get('Admin'),
+        to_name: formData.get('to_name'),
+        from_name: formData.get('from_name'),
+        message: formData.get('message'),
+        reply_to: formData.get('reply_to'),
+      })
+      .then(() => {
+        alert('Email sent successfully!');
+        form.reset();
+      })
+      .catch((error) => {
+        alert('Failed to send email. Please try again later.');
+        console.error('Error:', error);
+      });
+    }
+  </script>
+</body>
+</html>
